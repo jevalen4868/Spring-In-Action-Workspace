@@ -1,17 +1,35 @@
-package spittr.data;
+package spittr;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.hibernate.validator.constraints.Email;
 
 public class Spitter {
 
     private Long id;
 
+    @NotNull
+    @Size(min=5, max=16, message="{username.size}")
     private String username;
+    @NotNull
+    @Size(min=5, max=25, message="{password.size}")
     private String password;
+    
+    @NotNull
+    @Size(min=2, max=30, message="{firstName.size}")
     private String firstName;
+    
+    @NotNull
+    @Size(min=2, max=30, message="{lastName.size}")
     private String lastName;
 
+    @NotNull
+    @Email(message="{email.valid}")
+    private String email;
+    
     public Spitter() {};
     
     public Spitter(String username, String password, String firstName, String lastName) {
@@ -64,6 +82,20 @@ public class Spitter {
 
     public void setLastName(String lastName) {
 	this.lastName = lastName;
+    }
+
+    /**
+     * @return the email
+     */
+    public String getEmail() {
+        return email;
+    }
+
+    /**
+     * @param email the email to set
+     */
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
