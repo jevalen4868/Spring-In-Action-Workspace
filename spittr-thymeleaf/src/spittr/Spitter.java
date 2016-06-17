@@ -6,6 +6,8 @@ import javax.validation.constraints.Size;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
 
 public class Spitter {
 
@@ -26,7 +28,7 @@ public class Spitter {
     @Size(min=2, max=30, message="{lastName.size}")
     private String lastName;
 
-    @NotNull
+    @NotBlank(message="{email.blank}")
     @Email(message="{email.valid}")
     private String email;
     
