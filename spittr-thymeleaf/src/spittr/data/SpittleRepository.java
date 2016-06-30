@@ -6,6 +6,8 @@ package spittr.data;
 import java.util.List;
 
 import spittr.Spittle;
+import spittr.web.DuplicateSpittleException;
+import spittr.web.SpittleNotFoundException;
 
 /**
  * @author jeremyvalenzuela
@@ -14,5 +16,7 @@ import spittr.Spittle;
 public interface SpittleRepository {
     List<Spittle> findSpittles(long max, int count);
 
-    Spittle findOne(long spittleId);
+    Spittle findOne(long spittleId) throws SpittleNotFoundException;
+
+    void save(Spittle spittle) throws DuplicateSpittleException;
 }

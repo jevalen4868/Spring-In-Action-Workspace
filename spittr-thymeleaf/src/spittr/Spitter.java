@@ -34,11 +34,11 @@ public class Spitter {
     
     public Spitter() {};
     
-    public Spitter(String username, String password, String firstName, String lastName) {
-	this(null, username, password, firstName, lastName);
+    public Spitter(String username, String password, String firstName, String lastName, String email) {
+	this(null, username, password, firstName, lastName, email);
     }
 
-    public Spitter(Long id, String username, String password, String firstName, String lastName) {
+    public Spitter(Long id, String username, String password, String firstName, String lastName, String email) {
 	this.username= username;
 	this.password = password;
 	this.firstName = firstName;
